@@ -104,30 +104,31 @@ console.log(netTotal);
 
 // The average of the changes in Profit/Losses over the entire period.
 
-for (i = 0; i < finances.length; i++) {
-    var newArr = map(finances[i][1])
-}
+var profitAndLossArr = [];
+
+for(i=0;i< finances.length - 1;i++) {
+    var changePerMonth = finances[i + 1][1] - finances[i][1];
+    // console.log("The change from, ", finances[i] , " to ", finances[i + 1], " is ", changePerMonth);
+    profitAndLossArr.push([finances[i], changePerMonth]);
+};
+
+// console.log(profitAndLossArr);
+
+// Average change.
+
+var averageChange = 0;
+
+for (i = 0; i < profitAndLossArr.length; i++) {
+    averageChange += profitAndLossArr[i][1];
+};
+
+console.log(averageChange / (totalMonths - 1));
 
 // You will need to track what the total change in profits are from month to month and then find the average.
 // (Total/Number of months)
 // The greatest increase in profits (date and amount) over the entire period.
 
+
 // The greatest decrease in losses (date and amount) over the entire period.
-
-
-
-var firstEl = finances[0];
-var firstProfitOrLost = firstEl[1];
-
-
-// gets months in finances array
-for (i = 0; i < finances.length; i++) {
-    finances[i][0];
-};
-
-// gets profits & loss in finances array
-for (i = 0; i < finances.length; i++) {
-    finances[i][1];
-};
 
 
