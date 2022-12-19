@@ -87,10 +87,15 @@ var finances = [
 ['Feb-2017', 671099]
 ];
 
+// Title
+
+console.log("Financial Analysis");
+console.log("----------------------------")
+
 // The total number of months included in the dataset.
 
 var totalMonths = (finances.length);
-console.log(totalMonths);
+console.log("Total Months: ", totalMonths);
 
 // The net total amount of Profit/Losses over the entire period.
 
@@ -100,19 +105,22 @@ for (i = 0; i < finances.length; i++) {
     netTotal += finances[i][1];
 };
 
-console.log(netTotal);
+console.log("Total $" + netTotal);
 
 // The average of the changes in Profit/Losses over the entire period.
 
 var profitAndLossArr = [];
+var monthlyDifference = [];
+
 
 for(i=0;i< finances.length - 1;i++) {
     var changePerMonth = finances[i + 1][1] - finances[i][1];
     // console.log("The change from, ", finances[i] , " to ", finances[i + 1], " is ", changePerMonth);
-    profitAndLossArr.push([finances[i], changePerMonth]);
+    profitAndLossArr.push([finances[i][0], changePerMonth]);
+    monthlyDifference.push(changePerMonth);
+    // profitAndLossArr.flat();
+    // console.log(profitAndLossArr)
 };
-
-// console.log(profitAndLossArr);
 
 // Average change.
 
@@ -122,13 +130,30 @@ for (i = 0; i < profitAndLossArr.length; i++) {
     averageChange += profitAndLossArr[i][1];
 };
 
-console.log(averageChange / (totalMonths - 1));
+console.log("Average Change $" + averageChange / (totalMonths - 1));
 
 // You will need to track what the total change in profits are from month to month and then find the average.
 // (Total/Number of months)
 // The greatest increase in profits (date and amount) over the entire period.
 
+var max = Math.max(...monthlyDifference);
+
+for (i = 0; i < profitAndLossArr.length; i++) {
+    if(profitAndLossArr[i][1] === max) {
+        console.log("Greatest Increase in Profits: ", profitAndLossArr[i + 1][0], "$" + profitAndLossArr[i][1]);
+    };
+};
+
+// How to access right part of the array?
+// Then I need to create a way to get the highest value. Either an if statement or Math.max
+// print that value to console
+
 
 // The greatest decrease in losses (date and amount) over the entire period.
+var min = Math.min(...monthlyDifference);
 
-
+for (i = 0; i < profitAndLossArr.length; i++) {
+    if(profitAndLossArr[i][1] === min) {
+        console.log("Greatest Decrease in Profits: ", profitAndLossArr[i + 1][0], "$" + profitAndLossArr[i][1]);
+    };
+};
