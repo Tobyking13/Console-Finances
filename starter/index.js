@@ -89,13 +89,30 @@ var finances = [
 
 // Title
 
+// console.log
 console.log("Financial Analysis");
 console.log("----------------------------")
 
+// DOM
+var title = document.createElement('h1');
+var titleLine = document.createElement('h1')
+
+title.innerHTML = "Financial Analysis";
+titleLine.innerHTML = ("----------------------------")
+document.body.appendChild(title);
+document.body.appendChild(titleLine);
+
 // The total number of months included in the dataset.
 
+// console.log
 var totalMonths = (finances.length);
 console.log("Total Months: ", totalMonths);
+
+// DOM
+var totalMonthsDOM = document.createElement('h2')
+
+totalMonthsDOM.innerHTML = ("Total Months: " + totalMonths);
+document.body.appendChild(totalMonthsDOM);
 
 // The net total amount of Profit/Losses over the entire period.
 
@@ -105,42 +122,55 @@ for (i = 0; i < finances.length; i++) {
     netTotal += finances[i][1];
 };
 
+// console.log
 console.log("Total $" + netTotal);
+
+// DOM
+var netTotalDOM = document.createElement('h2');
+
+netTotalDOM.innerHTML = ("Total $" + netTotal);
+document.body.appendChild(netTotalDOM);
 
 // The average of the changes in Profit/Losses over the entire period.
 
 var profitAndLossArr = [];
 var monthlyDifference = [];
-
+var averageChange = 0;
 
 for(i=0;i< finances.length - 1;i++) {
     var changePerMonth = finances[i + 1][1] - finances[i][1];
-    // console.log("The change from, ", finances[i] , " to ", finances[i + 1], " is ", changePerMonth);
     profitAndLossArr.push([finances[i][0], changePerMonth]);
     monthlyDifference.push(changePerMonth);
-    // profitAndLossArr.flat();
-    // console.log(profitAndLossArr)
 };
-
-// Average change.
-
-var averageChange = 0;
 
 for (i = 0; i < profitAndLossArr.length; i++) {
     averageChange += profitAndLossArr[i][1];
 };
 
+// console.log
 console.log("Average Change $" + averageChange / (totalMonths - 1));
+
+// DOM
+var averageChangeDOM = document.createElement('h2');
+
+averageChangeDOM.innerHTML = ("Average Change $" + averageChange / (totalMonths - 1));
+document.body.appendChild(averageChangeDOM);
 
 // You will need to track what the total change in profits are from month to month and then find the average.
 // (Total/Number of months)
 // The greatest increase in profits (date and amount) over the entire period.
 
 var max = Math.max(...monthlyDifference);
+var maxDOM = document.createElement('h2');
 
 for (i = 0; i < profitAndLossArr.length; i++) {
     if(profitAndLossArr[i][1] === max) {
+        // console.log
         console.log("Greatest Increase in Profits: ", profitAndLossArr[i + 1][0], "$" + profitAndLossArr[i][1]);
+        
+        // DOM
+        maxDOM.innerHTML = ("Greatest Increase in Profits: " + profitAndLossArr[i + 1][0] + " $" + profitAndLossArr[i][1]);
+        document.body.appendChild(maxDOM);
     };
 };
 
@@ -151,9 +181,17 @@ for (i = 0; i < profitAndLossArr.length; i++) {
 
 // The greatest decrease in losses (date and amount) over the entire period.
 var min = Math.min(...monthlyDifference);
+var minDOM = document.createElement('h2');
 
 for (i = 0; i < profitAndLossArr.length; i++) {
     if(profitAndLossArr[i][1] === min) {
+        // console.log
         console.log("Greatest Decrease in Profits: ", profitAndLossArr[i + 1][0], "$" + profitAndLossArr[i][1]);
+
+        // DOM
+        minDOM.innerHTML = ("Greatest Decrease in Profits: " + profitAndLossArr[i + 1][0] + " $" + profitAndLossArr[i][1]);
+        document.body.appendChild(minDOM);
     };
 };
+
+
