@@ -99,14 +99,14 @@ var value = 0;
 
 // console.log
 console.log("Financial Analysis");
-console.log("----------------------------")
+console.log("----------------------------");
 
 // DOM
 var title = document.createElement('h1');
 var titleLine = document.createElement('h1')
 
 title.innerHTML = "Financial Analysis";
-titleLine.innerHTML = ("----------------------------")
+titleLine.innerHTML = ("----------------------------");
 document.body.appendChild(title);
 document.body.appendChild(titleLine);
 
@@ -117,7 +117,7 @@ var totalMonths = (finances.length);
 console.log("Total Months: ", totalMonths);
 
 // DOM
-var totalMonthsDOM = document.createElement('h2')
+var totalMonthsDOM = document.createElement('h2');
 
 totalMonthsDOM.innerHTML = ("Total Months: " + totalMonths);
 document.body.appendChild(totalMonthsDOM);
@@ -130,7 +130,7 @@ for (i = 0; i < finances.length; i++) {
     netTotal += finances[i][1];
 };
 
-value = netTotal
+value = netTotal;
 
 // console.log
 console.log("Total: ", dollars.format(value));
@@ -157,7 +157,7 @@ for (i = 0; i < profitAndLossArr.length; i++) {
     averageChange += profitAndLossArr[i][1];
 };
 
-value = (averageChange / (totalMonths - 1))
+value = (averageChange / (totalMonths - 1));
 // console.log
 console.log("Average Change: ", dollars.format(value));
 
