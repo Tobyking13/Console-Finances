@@ -1,0 +1,18 @@
+body {
+    background-image: linear-gradient(to bottom, #227c70, #3a8471, #4e8b72, #609374, #719a77, #81a27d, #91ab84, #a1b38c, #b3be99, #c4caa6, #d5d6b4, #e6e2c3);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+}
+
+h1 {
+    font-family: Roboto;
+    text-align: center;
+}
+
+h2 {
+    font-family: Roboto;
+    text-align: center;
+}
+
