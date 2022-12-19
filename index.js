@@ -133,12 +133,12 @@ for (i = 0; i < finances.length; i++) {
 value = netTotal
 
 // console.log
-console.log("Total ", dollars.format(value));
+console.log("Total: ", dollars.format(value));
 
 // DOM
 var netTotalDOM = document.createElement('h2');
 
-netTotalDOM.innerHTML = ("Total " + dollars.format(value));
+netTotalDOM.innerHTML = ("Total: " + dollars.format(value));
 document.body.appendChild(netTotalDOM);
 
 // The average of the changes in Profit/Losses over the entire period.
@@ -159,12 +159,12 @@ for (i = 0; i < profitAndLossArr.length; i++) {
 
 value = (averageChange / (totalMonths - 1))
 // console.log
-console.log("Average Change ", dollars.format(value));
+console.log("Average Change: ", dollars.format(value));
 
 // DOM
 var averageChangeDOM = document.createElement('h2');
 
-averageChangeDOM.innerHTML = ("Average Change " + dollars.format(value));
+averageChangeDOM.innerHTML = ("Average Change: " + dollars.format(value));
 document.body.appendChild(averageChangeDOM);
 
 // You will need to track what the total change in profits are from month to month and then find the average.
@@ -207,9 +207,3 @@ for (i = 0; i < profitAndLossArr.length; i++) {
         document.body.appendChild(minDOM);
     };
 };
-
-
-
-
-
-// £1,235 - returns the value of a number rounded to the nearest integer
