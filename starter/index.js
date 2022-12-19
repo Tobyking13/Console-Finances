@@ -87,6 +87,14 @@ var finances = [
 ['Feb-2017', 671099]
 ];
 
+// Format values to add commas and dollar sign
+var dollars = new Intl.NumberFormat('en-US', { 
+    style: 'currency', 
+    currency: 'USD', 
+    maximumFractionDigits: 0,
+  });
+
+var value = 0;
 // Title
 
 // console.log
@@ -122,13 +130,15 @@ for (i = 0; i < finances.length; i++) {
     netTotal += finances[i][1];
 };
 
+value = netTotal
+
 // console.log
-console.log("Total $" + netTotal);
+console.log("Total ", dollars.format(value));
 
 // DOM
 var netTotalDOM = document.createElement('h2');
 
-netTotalDOM.innerHTML = ("Total $" + netTotal);
+netTotalDOM.innerHTML = ("Total " + dollars.format(value));
 document.body.appendChild(netTotalDOM);
 
 // The average of the changes in Profit/Losses over the entire period.
@@ -147,13 +157,14 @@ for (i = 0; i < profitAndLossArr.length; i++) {
     averageChange += profitAndLossArr[i][1];
 };
 
+value = (averageChange / (totalMonths - 1))
 // console.log
-console.log("Average Change $" + averageChange / (totalMonths - 1));
+console.log("Average Change ", dollars.format(value));
 
 // DOM
 var averageChangeDOM = document.createElement('h2');
 
-averageChangeDOM.innerHTML = ("Average Change $" + averageChange / (totalMonths - 1));
+averageChangeDOM.innerHTML = ("Average Change " + dollars.format(value));
 document.body.appendChild(averageChangeDOM);
 
 // You will need to track what the total change in profits are from month to month and then find the average.
@@ -164,12 +175,13 @@ var max = Math.max(...monthlyDifference);
 var maxDOM = document.createElement('h2');
 
 for (i = 0; i < profitAndLossArr.length; i++) {
+    value = profitAndLossArr[i][1];
     if(profitAndLossArr[i][1] === max) {
         // console.log
-        console.log("Greatest Increase in Profits: ", profitAndLossArr[i + 1][0], "$" + profitAndLossArr[i][1]);
+        console.log("Greatest Increase in Profits: ", profitAndLossArr[i + 1][0], dollars.format(value));
         
         // DOM
-        maxDOM.innerHTML = ("Greatest Increase in Profits: " + profitAndLossArr[i + 1][0] + " $" + profitAndLossArr[i][1]);
+        maxDOM.innerHTML = ("Greatest Increase in Profits: " + profitAndLossArr[i + 1][0] + " " + dollars.format(value));
         document.body.appendChild(maxDOM);
     };
 };
@@ -184,14 +196,20 @@ var min = Math.min(...monthlyDifference);
 var minDOM = document.createElement('h2');
 
 for (i = 0; i < profitAndLossArr.length; i++) {
+    value = profitAndLossArr[i][1];
+    
     if(profitAndLossArr[i][1] === min) {
         // console.log
-        console.log("Greatest Decrease in Profits: ", profitAndLossArr[i + 1][0], "$" + profitAndLossArr[i][1]);
+        console.log("Greatest Decrease in Profits: ", profitAndLossArr[i + 1][0], dollars.format(value));
 
         // DOM
-        minDOM.innerHTML = ("Greatest Decrease in Profits: " + profitAndLossArr[i + 1][0] + " $" + profitAndLossArr[i][1]);
+        minDOM.innerHTML = ("Greatest Decrease in Profits: " + profitAndLossArr[i + 1][0] + " " + dollars.format(value));
         document.body.appendChild(minDOM);
     };
 };
 
 
+
+
+
+// £1,235 - returns the value of a number rounded to the nearest integer
