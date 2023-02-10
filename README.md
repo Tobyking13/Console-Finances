@@ -2,7 +2,7 @@
 
 ## Description
 
-This week's challenge was to create a webpage that would console.log information about the company's finances that is logged within a Javascript array. The information gathered was: the total number of months, net profit, an average change of profit and loss for each month, the greatest monthly increase in profits and the greatest monthly decrease in profits. 
+I have created a webpage that will console.log information about the company's finances that is logged within a Javascript array. The information gathered was: the total number of months, net profit, an average change of profit and loss for each month, the greatest monthly increase in profits and the greatest monthly decrease in profits. 
 
 Firstly I wrote pseudocode to figure out all of the steps in how to complete this program and achieve all the results it needed.
 
